@@ -1,0 +1,40 @@
+{
+  "name": "minicli/miniterm",
+  "description": "Minicli Application Template powered with Termwind and Plates",
+  "license": "MIT",
+  "homepage": "https://github.com/minicli/miniterm",
+  "keywords": ["cli","command-line", "template", "termwind", "plates", "minicli"],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "minicli/minicli": "^4.2",
+    "minicli/command-help": "^1.0",
+    "nunomaduro/termwind": "^1.15",
+    "league/plates": "^3.5",
+    "simplon/postgres": "^0.2.6",
+    "ext-pdo": "*",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+    "pestphp/pest": "^1.23",
+    "laravel/pint": "^1.10"
+  },
+  "scripts": {
+    "lint" : ["pint"],
+    "test:lint" : ["pint --test"],
+    "test:unit" : ["pest"],
+    "test": [
+      "@test:lint",
+      "@test:unit"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
