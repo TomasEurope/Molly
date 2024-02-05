@@ -21,7 +21,7 @@ class MollyService implements ServiceInterface
     final public function getIpsRandom(int $count = 1, ?string $where = null): array
     {
         return $this->db->fetchRowMany('SELECT id, ip FROM ips ' . ($where ? 'WHERE ' . $where : '') . ' ORDER BY updated_at ASC LIMIT :count OFFSET :offset'
-            , ['count' => $count, 'offset' => $count + rand(0, 5) * $count + (rand(0, 4) === 4 ? 1_000_000 : 0)]);
+            , ['count' => $count, 'offset' => $count + rand(0, 5) * $count ]);
     }
 
     final public function markUpdated(string $table, array $ids){

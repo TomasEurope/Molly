@@ -26,9 +26,9 @@ class DbService implements ServiceInterface, DbInterface
         $charset = $app->config->db['char'] ?: 'utf8';
         $options = array();
 
-        $this->db = new Postgres($host, $user, $password, $database, $port, $fetchMode, $charset, $options);
+        //$this->db = new Postgres($host, $user, $password, $database, $port, $fetchMode, $charset, $options);
 
-        $this->pgSqlManager = new PgSqlManager($this->db);
+        //$this->pgSqlManager = new PgSqlManager($this->db);
     }
 
     public function __call(string $name, array $arguments): mixed

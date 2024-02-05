@@ -30,7 +30,7 @@ $config = [
         'char' => null
     ],
 
-    //*
+
 
     'params' =>
         explode("\n", '1

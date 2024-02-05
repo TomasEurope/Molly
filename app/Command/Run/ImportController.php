@@ -33,7 +33,7 @@ class ImportController extends BaseController
             return array_map('long2ip', range($start, $end) );
         }
 
-        $ips = explode("\n", file_get_contents(__DIR__ . "/ips.txt"));
+        $ips = explode("\n", file_get_contents($this->app->config->writable . "/ips.txt"));
 
         unset($ips[array_key_last($ips)]);
 
