@@ -128,13 +128,13 @@ class MollyService implements ServiceInterface
 
     private function insertBodys(array $data):void
     {
-        $data['body'] = utf8_encode($data['body']);
+        $data['body'] = @utf8_encode($data['body']);
         $this->db->insert('bodys', $data, null, true);
     }
 
     private function insertResults(array $data):void
     {
-        $data['head'] = utf8_encode($data['head']);
+        $data['head'] = @utf8_encode($data['head']);
         $this->db->insert('results', $data, null, null, 'results_ips_id_ports_id_protos_id_file_id');
     }
 
