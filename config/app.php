@@ -20,11 +20,18 @@ $config = [
 
     'writable' => __DIR__ . '/../writable',
 
+
+    // Password here is OK
+    // Secure your server
+    // And no-one will hack you :)
+
+    // Remember - you are using "hacking" like tool
+
     'db' => [
         'host' => '127.0.0.1',
         'user' => 'molly',
         'pass' => 'molly',
-        'data' => 'mollyru',
+        'data' => 'molly',
         'port' => null,
         'mode' => null,
         'char' => null
