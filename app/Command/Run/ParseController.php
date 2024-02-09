@@ -23,7 +23,7 @@ class ParseController extends BaseController
             $i = 0;
             $dirs = scandir($this->app->config->output);
             foreach($dirs as $dir){
-                if($dir === '.' || $dir === '..' || $dir > (time() - 600)){
+                if($dir === '.' || $dir === '..' || $dir > (time())){
                     continue;
                 }
 
