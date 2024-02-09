@@ -33,9 +33,11 @@ class ImportController extends BaseController
             return array_map('long2ip', range($start, $end) );
         }
 
-        $ips = explode("\n", file_get_contents($this->app->config->writable . "/ips.txt"));
+        $ips = explode("\n", file_get_contents(
+            'https://raw.githubusercontent.com/ipverse/rir-ip/master/country/sy/ipv4-aggregated.txt'
+        ));
 
-        unset($ips[array_key_last($ips)]);
+        unset($ips[0], $ips[1], $ips[2], $ips[3], $ips[4], $ips[array_key_last($ips)]);
 
         $i = 1;
         foreach($ips as $ip){

@@ -1,0 +1,20 @@
+services:
+  molly:
+    build:
+      context: .
+    volumes:
+      - .:/usr/local/bin
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ../pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

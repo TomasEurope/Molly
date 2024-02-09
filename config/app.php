@@ -9,6 +9,8 @@ $config = [
         'Molly :)'
     ),
 
+    'base_path' => __DIR__ . '/..',
+
     'app_path' => [
         __DIR__.'/../app/Command',
         '@minicli/command-help'
@@ -28,10 +30,10 @@ $config = [
     // Remember - you are using "hacking" like tool
 
     'db' => [
-        'host' => '127.0.0.1',
-        'user' => 'molly',
-        'pass' => 'molly',
-        'data' => 'molly',
+        'host' => 'db',
+        'user' => 'postgres',
+        'pass' => 'postgres',
+        'data' => 'postgres',
         'port' => null,
         'mode' => null,
         'char' => null

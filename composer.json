@@ -17,11 +17,13 @@
     "league/plates": "^3.5",
     "tomaseurope/simplon_postgres": "1.0",
     "ext-pdo": "*",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "cweagans/composer-patches": "^1.7"
   },
   "require-dev": {
     "pestphp/pest": "^1.23",
-    "laravel/pint": "^1.10"
+    "laravel/pint": "^1.10",
+    "symplify/vendor-patches": "^11.3"
   },
   "scripts": {
     "lint" : ["pint"],
@@ -34,7 +36,8 @@
   },
   "config": {
     "allow-plugins": {
-      "pestphp/pest-plugin": true
+      "pestphp/pest-plugin": true,
+      "cweagans/composer-patches": true
     }
   }
 }
