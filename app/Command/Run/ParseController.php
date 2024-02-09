@@ -22,6 +22,7 @@ class ParseController extends BaseController
             $last = '';
             $i = 0;
             $dirs = scandir($this->app->config->output);
+            shuffle($dirs);
             foreach($dirs as $dir){
                 if($dir === '.' || $dir === '..' || $dir > (time())){
                     continue;
