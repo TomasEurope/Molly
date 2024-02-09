@@ -17,19 +17,18 @@ class IpsController extends BaseController
 
         $config = (object) [
             'parallel' => $this->hasParam('parallel') ? $this->getParam('parallel') : 1,
-            'count' => $this->hasParam('count') ? $this->getParam('count') : 100
+            'count' => $this->hasParam('count') ? $this->getParam('count') : 1
         ];
 
         $this->manager->start(self::class, $config, 'Parallel: ' . $config->parallel);
 
         $file = ['id' => 0, 'file' => '/'];
-        $proto = ['id' => 0, 'proto' => 'http'];
 
         do {
 
             $i = 0;
             $this->molly->queueReset();
-            //$proto = $this->molly->getProtoRandom()[0];
+            $proto = $this->molly->getProtoRandom()[0];
             $port = $this->molly->getPortRandom()[0];
             $ips = $this->molly->getIpsRandom($config->count);
             $this->molly->markUpdated('ips', array_column($ips, 'id'));
@@ -42,7 +41,6 @@ class IpsController extends BaseController
             foreach($ips as $ip) {
                 $one = [
                     $proto['id'] . '-' . $ip['id'] . '-' . $port['id'] . '-' . $file['id'],
-                    //$proto['proto'] . '://' . $ip['ip'] . ':' . $port['port'] . $file['file']
                     $proto['proto'] . '://' . $ip['ip'] . ':' . $port['port'] . $file['file']
                 ];
                 $this->molly->queueAdd($one);
