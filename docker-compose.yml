@@ -9,7 +9,7 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: molly
     volumes:
       - ../pgdata:/var/lib/postgresql/data
 
