@@ -38,7 +38,7 @@ class ImportController extends BaseController
         }
 
         $ips = explode("\n", file_get_contents(
-            'https://raw.githubusercontent.com/ipverse/rir-ip/master/country/' . $country . '/ipv4-aggregated.txt'
+            'https://raw.githubusercontent.com/ipverse/rir-ip/master/country/' . $config->country . '/ipv4-aggregated.txt'
         ));
 
         unset($ips[0], $ips[1], $ips[2], $ips[3], $ips[4], $ips[array_key_last($ips)]);
