@@ -53,7 +53,7 @@ class ManagerService implements ServiceInterface
         $json->ping = time();
         $json->total += $count;
 
-        $json->status = "\rSpeed: " . round($json->total / (time() - $json->start)) . "/s | Load: " . round(sys_getloadavg()[0] / $this->countCpus(), 2) . " | Total: " . round($json->total / 1000) . "k | Time: " . round((time() - $json->start) / 3600, 1) . "h"  . " | " . $options;
+        $json->status = "\rSpeed: " . round($json->total / (time() - $json->start + 1)) . "/s | Load: " . round(sys_getloadavg()[0] / $this->countCpus(), 2) . " | Total: " . round($json->total / 1000) . "k | Time: " . round((time() - $json->start) / 3600, 1) . "h"  . " | " . $options;
 
         echo $json->status;
 
