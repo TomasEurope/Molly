@@ -57,7 +57,7 @@ class MollyService implements ServiceInterface
     public function queueExec(int $parallel)
     {
         $options = sprintf($this->app->config->options, $parallel);
-        $time = time();
+        $time = time() . rand(0, 999);
         if (!mkdir($concurrentDirectory = $this->app->config->output . '/' . $time) && !is_dir($concurrentDirectory)) {
             throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
         }
