@@ -33,7 +33,7 @@ class SmbController extends BaseController
             //$proto = $this->molly->getProtoRandom()[0];
             //$port = $this->molly->getPortRandom()[0];
             $ips = $this->molly->getIpsRandom($config->count);
-            //$this->molly->markUpdated('ips', array_column($ips, 'id'));
+            $this->molly->markUpdated('ips', array_column($ips, 'id'));
 
             foreach($ips as $ip) {
                 $one = [
