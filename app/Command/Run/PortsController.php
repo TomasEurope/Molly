@@ -33,7 +33,7 @@ class PortsController extends BaseController
         ];
 
         $file = [
-            'id' => 1,
+            'id' => 0,
             'file' => '/'
         ];
 
