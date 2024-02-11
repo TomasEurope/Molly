@@ -123,7 +123,9 @@ class MollyService implements ServiceInterface
             'hash' => $bodysHash
         ];
 
+        echo " TO INSERT ";
         if (!$filesId || ($resultsRow['size'] && (!str_starts_with($status[0], 4) || $status[0] == 403))) {
+            print_r($resultsRow);
             $this->insertBodys($bodysRow);
             $this->insertResults($resultsRow);
         }

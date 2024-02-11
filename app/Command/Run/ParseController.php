@@ -22,18 +22,21 @@ class ParseController extends BaseController
             $last = '';
             $i = 0;
             $dirs = scandir($this->app->config->output);
+            echo " - DIRS: " . count($dirs) . " - ";
             shuffle($dirs);
             foreach($dirs as $dir){
                 if($dir === '.' || $dir === '..' || $dir > (time())){
                     continue;
                 }
 
+                echo " DIR $dir ";
                 $files = scandir($this->app->config->output . '/' . $dir);
                 shuffle($files);
                 foreach($files as $file){
                     if($file === '.' || $file === '..' || $file === 'options.txt'){
                         continue;
                     }
+                    echo " $file ";
                     $name = explode('-', str_replace('-.txt', '', $file));
                     if(is_dir($this->app->config->output . '/' . $dir . '/' . $file)){
                             $this->molly->recurseRmdir($this->app->config->output . '/' . $dir . '/' . $file);
