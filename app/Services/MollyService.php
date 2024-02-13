@@ -143,7 +143,7 @@ class MollyService implements ServiceInterface
         $this->db->insert('results', $data, null, null, 'results_ips_id_ports_id_protos_id_file_id');
     }
 
-    public function recurseRmdir($dir) {
+    final public function recurseRmdir($dir) {
         $files = array_diff(scandir($dir), array('.','..'));
         foreach ($files as $file) {
             (is_dir("$dir/$file") && !is_link("$dir/$file")) ? $this->recurseRmdir("$dir/$file") : unlink("$dir/$file");
