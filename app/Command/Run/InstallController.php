@@ -46,7 +46,7 @@ class InstallController extends BaseController
 
         $files = explode("\n", file_get_contents($this->app->config->base_path . '/files.txt'));
 
-        $sql[] = 'INSERT INTO files(file) VALUES (0,\'/\') ON CONFLICT DO NOTHING ;';
+        $sql[] = 'INSERT INTO files(id, file) VALUES (0,\'/\') ON CONFLICT DO NOTHING ;';
 
         foreach($files as $file){
             $sql[] = 'INSERT INTO files(file) VALUES (\'' . $file . '\') ON CONFLICT DO NOTHING ;';
