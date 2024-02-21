@@ -6516,7 +6516,7 @@ $config['options'] = '
 -i
 -Z
 --connect-timeout 5
---max-time 15
+--max-time 150
 --http0.9
 --location
 --insecure
