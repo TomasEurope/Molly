@@ -76,9 +76,9 @@ class MollyService implements ServiceInterface
 
     public function getFileRandom(int $count = 1): array
     {
-        $prio = random_int(0, 2);
-        return $this->db->fetchRowMany('SELECT id, file FROM files WHERE prio=:prio ORDER BY RANDOM() LIMIT :count',
-            ['count' => $count, 'prio' => ($prio ? 1 : 0)]
+        //$prio = random_int(0, 2);
+        return $this->db->fetchRowMany('SELECT id, file FROM files ORDER BY RANDOM() LIMIT :count',
+            ['count' => $count]
         );
     }
 
