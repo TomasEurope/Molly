@@ -31,6 +31,10 @@ class ParseController extends BaseController
 
                 echo " DIR $dir ";
                 $files = scandir($this->app->config->output . '/' . $dir);
+                if(!$files){
+                    sleep(1);
+                    continue;
+                }
                 shuffle($files);
                 foreach($files as $file){
                     if($file === '.' || $file === '..' || $file === 'options.txt'){
