@@ -25,7 +25,7 @@ class ParseController extends BaseController
             echo " - DIRS: " . count($dirs) . " - ";
             shuffle($dirs);
             foreach($dirs as $dir){
-                if($dir === '.' || $dir === '..' || !is_dir($dir)){
+                if($dir === '.' || $dir === '..'){
                     continue;
                 }
 
