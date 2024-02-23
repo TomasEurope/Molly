@@ -84,7 +84,16 @@ class MollyService implements ServiceInterface
 
     public function getResultsRandom(int $count = 1, int $files_id = 0)
     {
-        return $this->db->fetchRowMany('SELECT url, protos_id, ips_id, ports_id, files_id FROM molly WHERE files_id=:files_id ORDER BY RANDOM() LIMIT :count', ['count' => $count, 'files_id' => $files_id]);
+        return $this->db->fetchRowMany('SELECT t1.id
+FROM results t1
+WHERE ips_id NOT IN (
+SELECT ips_id FROM results WHERE t1.protos_id=results.protos_id AND t1.ips_id=results.ips_id AND t1.ports_id=results.ports_id
+AND results.files_id=:files_id
+)
+AND files_id=0
+ORDER BY RANDOM() LIMIT :count', ['count' => $count, 'files_id' => $files_id]);
+
+
     }
 
     public function parse(string $result, int $protosId, int $ipsId, int $portsId, int $filesId = 0): void

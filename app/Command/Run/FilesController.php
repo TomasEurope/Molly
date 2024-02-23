@@ -26,7 +26,7 @@ class FilesController extends BaseController
             $i = 0;
             $this->molly->queueReset();
             $file = $this->molly->getFileRandom()[0];
-            $results = $this->molly->getResultsRandom($config->count);
+            $results = $this->molly->getResultsRandom($config->count, $file->id);
             foreach($results as $result) {
                 $one = [
                     $result['protos_id'] . '-' . $result['ips_id'] . '-' . $result['ports_id'] . '-' . $file['id'],
